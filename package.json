@@ -1,34 +1,65 @@
 {
-  "name": "@ckeditor/ckeditor5-editor-classic",
+  "name": "@ckeditor/ckeditor5-build-classic",
   "version": "36.0.0",
-  "description": "Classic editor implementation for CKEditor 5.",
+  "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
+    "ckeditor5-build",
     "ckeditor",
     "ckeditor5",
     "ckeditor 5",
-    "ckeditor5-editor",
-    "ckeditor5-dll"
+    "wysiwyg",
+    "rich text",
+    "editor",
+    "html",
+    "contentEditable",
+    "editing",
+    "operational transformation",
+    "ot",
+    "collaboration",
+    "collaborative",
+    "real-time",
+    "framework"
   ],
-  "main": "src/index.ts",
+  "main": "./build/ckeditor.js",
+  "files": [
+    "build",
+    "ckeditor5-metadata.json",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
-    "ckeditor5": "^36.0.0",
-    "lodash-es": "^4.17.15"
-  },
-  "devDependencies": {
+    "@ckeditor/ckeditor5-adapter-ckfinder": "^36.0.0",
+    "@ckeditor/ckeditor5-autoformat": "^36.0.0",
     "@ckeditor/ckeditor5-basic-styles": "^36.0.0",
-    "@ckeditor/ckeditor5-core": "^36.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^33.0.0",
-    "@ckeditor/ckeditor5-engine": "^36.0.0",
-    "@ckeditor/ckeditor5-enter": "^36.0.0",
+    "@ckeditor/ckeditor5-block-quote": "^36.0.0",
+    "@ckeditor/ckeditor5-ckbox": "^36.0.0",
+    "@ckeditor/ckeditor5-ckfinder": "^36.0.0",
+    "@ckeditor/ckeditor5-cloud-services": "^36.0.0",
+    "@ckeditor/ckeditor5-easy-image": "^36.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^36.0.0",
+    "@ckeditor/ckeditor5-essentials": "^36.0.0",
     "@ckeditor/ckeditor5-heading": "^36.0.0",
     "@ckeditor/ckeditor5-image": "^36.0.0",
+    "@ckeditor/ckeditor5-indent": "^36.0.0",
+    "@ckeditor/ckeditor5-link": "^36.0.0",
+    "@ckeditor/ckeditor5-list": "^36.0.0",
+    "@ckeditor/ckeditor5-media-embed": "^36.0.0",
     "@ckeditor/ckeditor5-paragraph": "^36.0.0",
-    "@ckeditor/ckeditor5-theme-lark": "^36.0.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^36.0.0",
+    "@ckeditor/ckeditor5-table": "^36.0.0",
     "@ckeditor/ckeditor5-typing": "^36.0.0",
-    "@ckeditor/ckeditor5-ui": "^36.0.0",
-    "@ckeditor/ckeditor5-undo": "^36.0.0",
-    "@ckeditor/ckeditor5-utils": "^36.0.0",
-    "typescript": "^4.8.4",
+    "@wiris/mathtype-ckeditor5": "^8.1.1"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-core": "^36.0.0",
+    "@ckeditor/ckeditor5-dev-translations": "^32.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^32.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^36.0.0",
+    "css-loader": "^5.2.7",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "ts-loader": "^9.3.0",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0"
   },
@@ -43,20 +74,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ckeditor/ckeditor5.git",
-    "directory": "packages/ckeditor5-editor-classic"
+    "directory": "packages/ckeditor5-build-classic"
   },
-  "files": [
-    "lang",
-    "src/**/*.js",
-    "src/**/*.d.ts",
-    "theme",
-    "build",
-    "ckeditor5-metadata.json",
-    "CHANGELOG.md"
-  ],
   "scripts": {
-    "dll:build": "webpack",
-    "build": "tsc -p ./tsconfig.release.json",
-    "postversion": "npm run build"
+    "build": "webpack --mode production",
+    "preversion": "npm run build"
   }
 }
